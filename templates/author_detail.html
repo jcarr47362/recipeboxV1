@@ -1,1 +1,9 @@
-<h1>Author Detail View</h1>
+<h1>{{author.name}} Recipes</h1>
+
+{% for recipe in recipes%}
+
+<ul style="list-style: none;">
+<li><a href="/recipe/{{recipe.id}}/">{{recipe.title}}<a></li>
+</ul>
+
+{% endfor %}
