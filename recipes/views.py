@@ -9,10 +9,10 @@ def index_view(request):
 
 
 def author_detail_view(request, author_id):
-    my_author = Author.objects.filter(id=author_id)
+    my_author = Author.objects.filter(id=author_id).first()
     return render(request, 'author_detail.html', {"author": my_author})
 
 
 def recipe_detail_view(request, recipe_id):
-    my_recipe = Recipe.objects.filter(id=recipe_id)
+    my_recipe = Recipe.objects.filter(id=recipe_id).first()
     return render(request, 'recipe_detail.html', {"recipe": my_recipe})
