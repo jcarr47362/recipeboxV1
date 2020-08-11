@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
-{% block content %}
 
+{% block content %}
 <html lang="en">
     <head>
       <meta charset="utf-8">
@@ -25,16 +25,15 @@
 {% endfor %}
 
 
-<button type="button">
+<button type="button" class="btn btn-default">
 <a href="/addrecipe/{{recipe_form}}">Add Recipe</a>
 </button>
 
-<button type="button">
+<button type="button" class="btn btn-default">
 <a href="/addauthor/{{author_form}}">Add Author</a>
 </button>
 
 
 </body>
-</html>
-
 {% endblock %}
+</html>

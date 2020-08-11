@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 
 <h1>{{recipe}} RecipeBox</h1>
 
@@ -8,4 +11,4 @@
 
 <h4>Author: <a href="/author/{{recipe.author.id}}">{{recipe.author}}</a></h4>
 
-
+{% endblock %}

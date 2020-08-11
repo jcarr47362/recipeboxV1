@@ -1,6 +1,6 @@
 body {
-  background-image: url("/static/images/recipe_bg.jpg");
+  background: url("/static/images/recipe_bg.jpg") no-repeat center center fixed;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  height: 100%;
+  overflow: hidden;
 }
