@@ -20,7 +20,7 @@ from recipes.views import index_view, author_detail_view, recipe_detail_view, ad
 
 
 urlpatterns = [
-    path('', index_view),
+    path('', index_view, name="recipes"),
     path('author/<int:author_id>/', author_detail_view),
     path('recipe/<int:recipe_id>/', recipe_detail_view),
     path('addrecipe/', add_recipe),

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect, reverse
 
 from recipes.models import Author, Recipe
 from .forms import AddAuthorForm, AddRecipeForm
@@ -28,5 +28,16 @@ def add_author(request):
 def add_recipe(request):
     if request.method == "POST":
         form = AddRecipeForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            Recipe.objects.create(
+                title=data.get('title'),
+                author=data.get('author'),
+                description=data.get('description'),
+                time_required=data.get('time_required'),
+                instructions=data.get('instructions')
+            )
+            return HttpResponseRedirect(reverse("recipes"))
+
     form = AddRecipeForm()
     return render(request, "add_recipe.html", {"recipe_form": form})
