@@ -26,5 +26,4 @@ def add_author(request):
 
 def add_recipe(request):
     form = AddRecipeForm()
-
     return render(request, "add_recipe.html", {"form": form})
