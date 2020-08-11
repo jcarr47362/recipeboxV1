@@ -1,5 +1,4 @@
-<!doctype html>
-<html>
+<html lang="en">
     <head>
       <meta charset="utf-8">
       <title>
@@ -7,6 +6,9 @@
         {{ page_title|default:"Untitled Page" }}        
         {% endblock title %}      
     </title>
+    {% load static %}
+    <link href="{% static 'css/style.css'%}" 
+    rel="stylesheet">
    </head>
 
 <body>
