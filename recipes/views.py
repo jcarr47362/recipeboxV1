@@ -22,9 +22,11 @@ def recipe_detail_view(request, recipe_id):
 
 def add_author(request):
     form = AddAuthorForm()
-    return render(request, "add_author.html", {"form": form})
+    return render(request, "add_author.html", {"author_form": form})
 
 
 def add_recipe(request):
+    if request.method == "POST":
+        form = AddRecipeForm(request.POST)
     form = AddRecipeForm()
-    return render(request, "add_recipe.html", {"form": form})
+    return render(request, "add_recipe.html", {"recipe_form": form})
