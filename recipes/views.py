@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from recipes.models import Author, Recipe
+from .forms import AddAuthorForm, AddRecipeForm
 
 
 def index_view(request):
@@ -17,3 +18,13 @@ def author_detail_view(request, author_id):
 def recipe_detail_view(request, recipe_id):
     my_recipe = Recipe.objects.filter(id=recipe_id).first()
     return render(request, 'recipe_detail.html', {"recipe": my_recipe})
+
+
+def add_author(request):
+    pass
+
+
+def add_recipe(request):
+    form = AddRecipeForm()
+
+    return render(request, "add_recipe.html", {"form": form})
