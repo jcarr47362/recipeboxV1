@@ -15,11 +15,11 @@
 <body>
 <h1>Welcome to Recipe Box</h1>
 
-<h3>Recipe List</h3>
+<h3>Recipe Title List</h3>
 {% for recipe in recipes%}
 
 <ul style="list-style: none;">
-<li><a href="/recipe/{{recipe.id}}/">{{recipe.title}}<a></li>
+<div class="recipe-list"><li><a style="color:#F4F2F5;" href="/recipe/{{recipe.id}}/">{{recipe.title}}<a></li></div>
 </ul>
 
 {% endfor %}

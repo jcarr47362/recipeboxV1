@@ -4,3 +4,17 @@ body {
   height: 100%;
   overflow: hidden;
 }
+
+.recipe-list {
+  background-color: #c41b36;
+  max-width: 400px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 9px;
+  padding-left: 5px;
+  font-size: 17px;
+}
+
+a {
+  color: #eec59f;
+}
