@@ -21,7 +21,8 @@ def recipe_detail_view(request, recipe_id):
 
 
 def add_author(request):
-    pass
+    form = AddAuthorForm()
+    return render(request, "add_author.html", {"form": form})
 
 
 def add_recipe(request):
