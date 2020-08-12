@@ -21,5 +21,6 @@ body {
   height: auto;
   width: 425px;
   padding: 10px;
-  margin: 10px;
+  margin: 20px;
+  box-shadow: 5px 10px #221f1f;
 }
