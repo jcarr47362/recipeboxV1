@@ -24,3 +24,7 @@ body {
   margin: 20px;
   box-shadow: 5px 10px #221f1f;
 }
+
+.btn-container {
+  margin-left: 20px;
+}
