@@ -1,0 +1,19 @@
+<h1>Add Recipe</h1>
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% comment %} 
+some of the form fields are hidden on page render. 
+text boxes have to be manually sized for all fields and
+submit button to show
+{% endcomment %}
+
+<form action='/addrecipe/' method="post">
+    {% csrf_token %}
+    {{ recipe_form.as_p }}
+    <input type="submit" value="Submit!">
+</form>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+body {
+  background: url("/static/images/recipe_bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
+.recipe-list {
+  background-color: #c41b36;
+  max-width: 400px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 9px;
+  padding-left: 5px;
+  font-size: 17px;
+}
+
+.notebook-container {
+  background-image: url("/static/images/notebook.jpg");
+  background-color: green;
+  height: auto;
+  width: 425px;
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 5px 10px #221f1f;
+}
+
+.btn-container {
+  margin-left: 20px;
+}
