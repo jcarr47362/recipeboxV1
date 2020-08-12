@@ -1,5 +1,8 @@
-<!doctype html>
-<html>
+{% extends 'base.html' %}
+
+
+{% block content %}
+<html lang="en">
     <head>
       <meta charset="utf-8">
       <title>
@@ -10,26 +13,31 @@
    </head>
 
 <body>
+<div class="notebook-container">
 <h1>Welcome to Recipe Box</h1>
 
-<h3>Recipe List</h3>
-{% for recipe in recipes%}
+  <h3>Recipe Title List</h3>
+  {% for recipe in recipes%}
 
-<ul style="list-style: none;">
-<li><a href="/recipe/{{recipe.id}}/">{{recipe.title}}<a></li>
-</ul>
+  <ul style="list-style: none;">
+    <div class="recipe-list"><li><a style="color:#F4F2F5;" href="/recipe/{{recipe.id}}/">{{recipe.title}}<a></li></div>
+  </ul>
 
-{% endfor %}
-
-
-<button type="button">
-<a href="/addrecipe/{{recipe_form}}">Add Recipe</a>
-</button>
-
-<button type="button">
-<a href="/addauthor/{{author_form}}">Add Author</a>
-</button>
+  {% endfor %}
 
 
+</div>
+<div class="btn-container">
+  <button type="button" class="btn btn-default">
+    <a href="/addrecipe/{{recipe_form}}">Add Recipe</a>
+  </button>
+
+  <button type="button" class="btn btn-default">
+    <a href="/addauthor/{{author_form}}">Add Author</a>
+  </button>
+</div>
+
+</div>
 </body>
+{% endblock %}
 </html>
