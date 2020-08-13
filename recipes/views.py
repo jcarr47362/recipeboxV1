@@ -67,3 +67,8 @@ def login_view(request):
 
     form = LoginForm()
     return render(request, "login.html", {"form": form})
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse("recipes"))
