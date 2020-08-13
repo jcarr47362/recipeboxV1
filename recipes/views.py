@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from recipes.models import Author, Recipe
 from .forms import AddAuthorForm, AddRecipeForm, LoginForm
@@ -58,14 +59,19 @@ def add_recipe(request):
 
 
 def login_view(request):
+
+    valuenext = request.POST.get('next')
+
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
             user = authenticate(request, username=data.get(
                 "username"), password=data.get("password"))
-            if user:
+            if user and valuenext == '':
                 login(request, user)
+                messages.success(
+                    request, "You need to login to acces this page")
                 return HttpResponseRedirect(reverse("recipes"))
 
     form = LoginForm()
