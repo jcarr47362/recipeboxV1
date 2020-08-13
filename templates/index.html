@@ -15,6 +15,7 @@
 <body>
 <div class="notebook-container">
 <h1>Welcome to Recipe Box</h1>
+<h4>{% if user.is_authenticated %} Hello, {{ user.username}}!{% endif %}</h4>
 
   <h3>Recipe Title List</h3>
   {% for recipe in recipes%}
