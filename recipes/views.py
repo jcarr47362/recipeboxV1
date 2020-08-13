@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth import login, logout, authenticate
 
 from recipes.models import Author, Recipe
-from .forms import AddAuthorForm, AddRecipeForm
+from .forms import AddAuthorForm, AddRecipeForm, LoginForm
 
 
 def index_view(request):
@@ -52,3 +52,18 @@ def add_recipe(request):
 
     form = AddRecipeForm()
     return render(request, "add_recipe.html", {"recipe_form": form})
+
+
+def login_view(request):
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            user = authenticate(request, username=data.get(
+                "username"), password=data.get("password"))
+            if user:
+                login(request, user)
+                return HttpResponseRedirect(reverse("recipes"))
+
+    form = LoginForm()
+    return render(request, "login.html", {"form": form})
