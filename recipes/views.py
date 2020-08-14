@@ -68,11 +68,9 @@ def login_view(request):
             data = form.cleaned_data
             user = authenticate(request, username=data.get(
                 "username"), password=data.get("password"))
-            if user and valuenext == '':
+            if user:
                 login(request, user)
-                messages.success(
-                    request, "You need to login to acces this page")
-                return HttpResponseRedirect(reverse("recipes"))
+                return HttpResponseRedirect(request.GET.get('next'), reverse("recipes"))
 
     form = LoginForm()
     return render(request, "login.html", {"form": form})
