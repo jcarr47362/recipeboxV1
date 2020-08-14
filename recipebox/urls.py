@@ -27,5 +27,6 @@ urlpatterns = [
     path('addauthor/', add_author),
     path('login/', login_view, name="loginview"),
     path('logout/', logout_view, name="logoutview"),
+    path('signup/', signup_view, name="signupview"),
     path('admin/', admin.site.urls),
 ]
