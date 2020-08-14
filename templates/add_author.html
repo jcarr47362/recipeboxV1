@@ -2,16 +2,28 @@
 
 {% block content %}
 
+
+
+{% if request.user.is_staff %}
 <h1>Add Author</h1>
-
-
 <form action='/addauthor/' method="post">
     {% csrf_token %}
-    {% if request.user.is_staff %}
     {{ author_form.as_p }}
-    {% endif %}
     <input type="submit" value="Submit!">
 </form>
+
+{% else %}
+
+{% if messages %}
+<ul style="list-style: none; color: white; font-size: 25px; margin-top: 20px;">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{% endif %}
 
 
 {% endblock %}

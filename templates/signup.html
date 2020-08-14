@@ -17,8 +17,13 @@
                 <td>{{ form.password }}</td>
             </tr>
         </table>
+
+    {% if request.user.is_staff %}
+    {{ author_form.as_p }}
+    {% endif %}
+</form>
         <input type="hidden" name="next" value="{{ request.GET.next }}" />
-        <input type="submit" value="Log in" />
+        <input type="submit" value="Sign up" />
     </form>
 </div>
 

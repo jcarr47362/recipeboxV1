@@ -36,6 +36,8 @@ def add_author(request):
             )
             return HttpResponseRedirect(reverse("recipes"))
 
+    messages.add_message(request, messages.INFO,
+                         'You permission-level doesn\'t allow access')
     form = AddAuthorForm()
     return render(request, "add_author.html", {"author_form": form})
 

@@ -32,3 +32,12 @@ body {
 .form-box {
   margin-top: 20px;
 }
+
+.messages ul li {
+  list-style-type: none;
+}
+
+.messages {
+  color: white;
+  font-size: larger;
+}
