@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect, reverse
+from django.shortcuts import render, HttpResponseRedirect, reverse, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -41,7 +41,7 @@ def add_author(request):
             )
             return HttpResponseRedirect(reverse("recipes"))
 
-    messages.add_message(request, messages.INFO,
+    messages.add_message(request, messages.ERROR,
                          'You permission-level doesn\'t allow access')
     form = AddAuthorForm()
     return render(request, "add_author.html", {"author_form": form})
@@ -53,6 +53,7 @@ def add_recipe(request):
         form = AddRecipeForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
+            breakpoint()
             Recipe.objects.create(
                 title=data.get('title'),
                 author=data.get('author'),
@@ -68,8 +69,6 @@ def add_recipe(request):
 
 def login_view(request):
 
-    valuenext = request.POST.get('next')
-
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -78,7 +77,7 @@ def login_view(request):
                 "username"), password=data.get("password"))
             if user:
                 login(request, user)
-                return HttpResponseRedirect(request.GET.get('next'), reverse("recipes"))
+                return HttpResponseRedirect(request.GET.get('next', reverse('recipes')))
 
     form = LoginForm()
     return render(request, "login.html", {"form": form})

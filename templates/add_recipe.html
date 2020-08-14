@@ -10,9 +10,15 @@ text boxes have to be manually sized for all fields and
 submit button to show
 {% endcomment %}
 
+{% if request.user.is_staff %}
+    <p>You are a staff user</p>
+    {% else %}
+    <p>You are not a staff member</p>
+{% endif %}
+
 <form action='/addrecipe/' method="post">
     {% csrf_token %}
-    {{ recipe_form.as_p }}
+    {{recipe_form.as_p}}
     <input type="submit" value="Submit!">
 </form>
 
