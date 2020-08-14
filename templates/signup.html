@@ -7,6 +7,7 @@
 <div class="form-box">
     <form action='' method="post">
         {% csrf_token %}
+         {% if request.user.is_staff %}
         <table>
             <tr>
                 <td>{{ form.username.label_tag }}</td>
@@ -15,11 +16,11 @@
             <tr>
                 <td>{{ form.password.label_tag }}</td>
                 <td>{{ form.password }}</td>
-            </tr>
+            </tr> 
         </table>
-
-    {% if request.user.is_staff %}
-    {{ author_form.as_p }}
+                {{ author_form.as_p }}
+   
+    
     {% endif %}
 </form>
         <input type="hidden" name="next" value="{{ request.GET.next }}" />

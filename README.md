@@ -4,10 +4,10 @@ Demo Credentials
 
 Admin:
 admin
-admim
+admin
 
 Non-staff:
 kevin
-kevin
+Kevin1234K
 
 <img src="preview.png">

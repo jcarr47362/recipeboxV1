@@ -30,8 +30,13 @@ def add_author(request):
         form = AddAuthorForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
+            user_name = data.get('name')
+            user_password = data.get('password')
+            new_user = User.objects.create_user(
+                username=user_name, password=user_password)
             Author.objects.create(
                 name=data.get('name'),
+                user=new_user,
                 bio=data.get('bio')
             )
             return HttpResponseRedirect(reverse("recipes"))
@@ -90,7 +95,7 @@ def signup_view(request):
             return HttpResponseRedirect(reverse("recipes"))
 
     form = SignupForm()
-    return render(request, "signup.html", {"form": form})
+    return render(request, "signup.html", {"form": form, "author_form": form})
 
 
 def logout_view(request):

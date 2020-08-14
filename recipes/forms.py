@@ -4,6 +4,7 @@ from recipes.models import Author, Recipe
 
 class AddAuthorForm(forms.Form):
     name = forms.CharField(label='Name', max_length=50)
+    password = forms.CharField(widget=forms.PasswordInput)
     bio = forms.CharField(widget=forms.Textarea)
 
 
