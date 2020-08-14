@@ -1,0 +1,25 @@
+{% extends "index.html"%}
+
+{% block content %}
+
+<h2>Sign-up Page</h2>
+
+<div class="form-box">
+    <form action='' method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+        </table>
+        <input type="hidden" name="next" value="{{ request.GET.next }}" />
+        <input type="submit" value="Log in" />
+    </form>
+</div>
+
+{% endblock %}

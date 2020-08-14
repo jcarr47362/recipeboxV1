@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from recipes.views import index_view, author_detail_view, recipe_detail_view, add_recipe, add_author, login_view, logout_view
+from recipes.views import index_view, author_detail_view, recipe_detail_view, add_recipe, add_author, login_view, logout_view, signup_view
 
 
 urlpatterns = [

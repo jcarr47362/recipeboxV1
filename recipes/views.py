@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.models import User
+from django.contrib.auth.models import User
 
 from recipes.models import Author, Recipe
 from .forms import AddAuthorForm, AddRecipeForm, LoginForm, SignupForm
